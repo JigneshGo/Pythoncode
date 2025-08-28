@@ -1,0 +1,20 @@
+	from docx2pdf import convert
+	import os
+	def convert_word_to_pdf(word_path, pdf_path=None):
+	    # Check if the Word file exists
+	    if not os.path.exists(word_path):
+	        print(f"Error: File '{word_path}' not found.")
+	        return
+	    try:
+	        # Convert Word to PDF
+	        if pdf_path:
+	            convert(word_path, pdf_path)
+	        else:
+	            convert(word_path)  # Saves PDF in the same directory
+	        print(f"Conversion successful! PDF saved at: {pdf_path or os.path.dirname(word_path)}")
+	    except Exception as e:
+	        print(f"Conversion failed: {e}")
+	# Example usage
+	word_file = r"S:\Directions Central\Reception\Reception\pdf to word\input.docx"
+	pdf_file = r"S:\Directions Central\Reception\Reception\pdf to word\output.pdf"
+convert_word_to_pdf(word_file, pdf_file)
