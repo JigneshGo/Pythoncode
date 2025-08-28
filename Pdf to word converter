@@ -1,0 +1,19 @@
+	from pdf2docx import Converter
+	import os
+	def convert_pdf_to_word(pdf_path, word_path):
+	    # Check if the PDF file exists
+	    if not os.path.exists(pdf_path):
+	        print(f"Error: File '{pdf_path}' not found.")
+	        return
+	    # Convert PDF to Word
+	    try:
+	        cv = Converter(pdf_path)
+	        cv.convert(word_path, start=0, end=None)
+	        cv.close()
+	        print(f"Conversion successful! Word file saved at: {word_path}")
+	    except Exception as e:
+	        print(f"Conversion failed: {e}")
+	# Example usage
+	pdf_file = r"S:\Directions Central\Reception\Reception\pdf to word\Care Plan Template to edit - MB.pdf"
+	word_file = r"S:\Directions Central\Reception\Reception\pdf to word\Care Plan Template to edit - MB.docx"
+convert_pdf_to_word(pdf_file, word_file)
