@@ -1,0 +1,9 @@
+Sub ClearAllWorksheets()
+    Dim ws As Worksheet
+
+    ' Loop through each worksheet in the workbook
+    For Each ws In ThisWorkbook.Worksheets
+        ' Clear everything (contents, formats, etc.) in the worksheet
+        ws.Cells.Clear
+    Next ws
+End Sub
